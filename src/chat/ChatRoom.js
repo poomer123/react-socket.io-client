@@ -14,7 +14,8 @@ function ChatRoom() {
     }, [])
 
     const handleClick = () => {
-        socket.emit('emit', null)
+        socket.emit('emit', { count: count })
+        setCount(count + 1)
     }
 
     return (
