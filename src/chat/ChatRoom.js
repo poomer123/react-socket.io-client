@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 import socketIOClient from 'socket.io-client'
 import MessageList from './MessageList'
 import MessageForm from './MessageForm'
@@ -14,6 +15,10 @@ export default function ChatRoom(props) {
 
 	const messageSend = newMessage => {
 		setMessages([...messages, newMessage])
+	}
+
+	if (!name) {
+		return <Redirect to="/" />
 	}
 
 	return (
