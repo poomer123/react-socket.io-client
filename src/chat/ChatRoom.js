@@ -3,7 +3,8 @@ import socketIOClient from 'socket.io-client'
 import MessageList from './MessageList'
 import MessageForm from './MessageForm'
 
-export default function ChatRoom() {
+export default function ChatRoom(props) {
+	const { name } = props.location
 	const [messages, setMessages] = useState([
 		{ id: 1, text: 'Hi', member: 'John' },
 		{ id: 2, text: 'Good', member: 'Mark' },
@@ -12,14 +13,13 @@ export default function ChatRoom() {
 	])
 
 	const messageSend = newMessage => {
-		console.log(newMessage)
 		setMessages([...messages, newMessage])
 	}
 
 	return (
 		<div>
 			<MessageList messages={messages} />
-			<MessageForm messageSend={messageSend} />
+			<MessageForm messageSend={messageSend} member={name} />
 		</div>
 	)
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function MessageForm(props) {
-	const { messageSend } = props
+	const { messageSend, member } = props
 	const [value, setValue] = useState('')
 
 	const handleChange = e => {
@@ -10,8 +10,7 @@ export default function MessageForm(props) {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		messageSend({ id: 5, text: value, member: 'Jojo' })
-		console.log('handleSubmit')
+		messageSend({ id: 5, text: value, member: member })
 	}
 
 	return (
