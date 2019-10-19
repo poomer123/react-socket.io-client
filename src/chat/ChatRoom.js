@@ -10,10 +10,16 @@ export default function ChatRoom() {
 		{ id: 3, text: 'Bye', member: 'Sarah' },
 		{ id: 4, text: 'Good Bye', member: 'Jo' }
 	])
+
+	const messageSend = newMessage => {
+		console.log(newMessage)
+		setMessages([...messages, newMessage])
+	}
+
 	return (
 		<div>
 			<MessageList messages={messages} />
-			<MessageForm />
+			<MessageForm messageSend={messageSend} />
 		</div>
 	)
 }
