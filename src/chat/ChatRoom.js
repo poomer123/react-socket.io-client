@@ -6,6 +6,8 @@ import MessageForm from './MessageForm'
 
 export default function ChatRoom(props) {
 	const { name } = props.location
+	const serverUrl = 'http://localhost:8080'
+	const [socket, setSocket] = useState(null)
 	const [messages, setMessages] = useState([
 		{ id: 1, text: 'Hi', member: 'John' },
 		{ id: 2, text: 'Good', member: 'Mark' },
@@ -14,8 +16,20 @@ export default function ChatRoom(props) {
 	])
 
 	const messageSend = newMessage => {
+		const socketConnect = socketIOClient(serverUrl)
 		setMessages([...messages, newMessage])
+		socketConnect.emit('emit', { ...newMessage })
 	}
+
+	useEffect(() => {
+		const socketConnect = socketIOClient(serverUrl)
+		socketConnect.on('message', message => {
+			setMessages({
+				...message
+			})
+		})
+		setSocket(socketConnect)
+	}, [])
 
 	if (!name) {
 		return <Redirect to="/" />
