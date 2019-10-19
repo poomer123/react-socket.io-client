@@ -1,5 +1,10 @@
 import React from 'react'
 
-export default function Message() {
-    return <div>Message</div>
+export default function Message(props) {
+	const { message } = props
+	return (
+		<li>
+			{message.member} : {message.text}
+		</li>
+	)
 }
