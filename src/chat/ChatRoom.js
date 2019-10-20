@@ -24,7 +24,6 @@ export default function ChatRoom(props) {
 	useEffect(() => {
 		const socketConnect = socketIOClient(serverUrl)
 		socketConnect.on('message', message => {
-			console.log(message)
 			setMessages([...messages, message])
 		})
 		setSocket(socketConnect)
