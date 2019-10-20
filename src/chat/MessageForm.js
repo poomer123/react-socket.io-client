@@ -11,7 +11,7 @@ export default function MessageForm(props) {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		messageSend({ id: 5, text: value, member: member })
+		messageSend({ text: value, member: member })
 		setValue(initValue)
 	}
 
