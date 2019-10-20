@@ -16,9 +16,14 @@ export default function MessageForm(props) {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input type="text" onChange={handleChange} value={value} />
-			<button>Send</button>
+		<form onSubmit={handleSubmit} className="MessageForm">
+			<input
+				type="text"
+				className="MessageInput"
+				onChange={handleChange}
+				value={value}
+			/>
+			<button className="MessageButton">Send</button>
 		</form>
 	)
 }

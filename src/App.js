@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ChatRoom from './chat/ChatRoom'
 import ChatForm from './chat/ChatForm'
+import './App.css'
 
 function App() {
 	return (

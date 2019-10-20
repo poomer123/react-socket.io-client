@@ -4,7 +4,10 @@ export default function Message(props) {
 	const { message } = props
 	return (
 		<li>
-			{message.member} : {message.text}
+			<div className="Message-content">
+				<div className="username">{message.member}</div>
+				<div className="text">{message.text}</div>
+			</div>
 		</li>
 	)
 }

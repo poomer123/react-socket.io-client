@@ -7,9 +7,19 @@ export default function ChatForm() {
 		setName(e.target.value)
 	}
 	return (
-		<div>
-			<input type="name" onChange={handleChange} value={name} />
-			<Link to={{ pathname: '/chatroom', name }}>Join</Link>
+		<div className="MessageForm">
+			<input
+				type="name"
+				className="MessageInput"
+				onChange={handleChange}
+				value={name}
+			/>
+			<Link
+				to={{ pathname: '/chatroom', name }}
+				className="MessageButton"
+			>
+				Join
+			</Link>
 		</div>
 	)
 }
